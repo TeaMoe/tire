@@ -1,58 +1,59 @@
-# -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "tire/version"
+# frozen_string_literal: true
+
+$LOAD_PATH.push File.expand_path('lib', __dir__)
+require 'tire/version'
 
 Gem::Specification.new do |s|
-  s.name        = "tire"
+  s.name        = 'tire'
   s.version     = Tire::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.summary       = "Ruby client for Elasticsearch"
-  s.homepage      = "http://github.com/karmi/tire"
-  s.authors       = [ 'Karel Minarik' ]
+  s.summary       = 'Ruby client for Elasticsearch'
+  s.homepage      = 'http://github.com/karmi/tire'
+  s.authors       = ['Karel Minarik']
   s.email         = 'karmi@karmi.cz'
 
-  s.rubyforge_project = "tire"
+  s.rubyforge_project = 'tire'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
 
-  s.require_paths = ["lib"]
+  s.require_paths = ['lib']
 
-  s.extra_rdoc_files  = [ "README.markdown", "MIT-LICENSE" ]
-  s.rdoc_options      = [ "--charset=UTF-8" ]
+  s.extra_rdoc_files  = ['README.markdown', 'MIT-LICENSE']
+  s.rdoc_options      = ['--charset=UTF-8']
 
-  s.required_rubygems_version = ">= 1.3.6"
+  s.required_rubygems_version = '>= 1.3.6'
 
   # = Library dependencies
   #
-  s.add_dependency "rake"
-  s.add_dependency "rest-client", "~> 1.6"
-  s.add_dependency "multi_json",  "~> 1.3"
-  s.add_dependency "activemodel", ">= 3.0"
-  s.add_dependency "hashr",       "~> 0.0.19"
-  s.add_dependency "activesupport"
-  s.add_dependency "ansi"
+  s.add_dependency 'activemodel', '>= 3.0'
+  s.add_dependency 'activesupport'
+  s.add_dependency 'ansi'
+  s.add_dependency 'hashr', '~> 0.0.19'
+  s.add_dependency 'multi_json', '~> 1.3'
+  s.add_dependency 'rake'
+  s.add_dependency 'rest-client'
 
   # = Development dependencies
   #
-  s.add_development_dependency "bundler",      "~> 1.0"
-  s.add_development_dependency "shoulda-context"
-  s.add_development_dependency "mocha",        "~> 0.13"
-  s.add_development_dependency "minitest",     "~> 2.12"
-  s.add_development_dependency "activerecord", ">= 3.0"
-  s.add_development_dependency "active_model_serializers"
-  s.add_development_dependency "mongoid",      "~> 2.2"
-  s.add_development_dependency "redis-persistence"
-  s.add_development_dependency "faraday"
+  s.add_development_dependency 'active_model_serializers'
+  s.add_development_dependency 'activerecord', '>= 3.0'
+  s.add_development_dependency 'bundler', '~> 1.0'
+  s.add_development_dependency 'faraday'
+  s.add_development_dependency 'minitest', '~> 2.12'
+  s.add_development_dependency 'mocha',        '~> 0.13'
+  s.add_development_dependency 'mongoid', '~> 2.2'
+  s.add_development_dependency 'redis-persistence'
+  s.add_development_dependency 'shoulda-context'
 
   unless defined?(JRUBY_VERSION)
-    s.add_development_dependency "yajl-ruby",   "~> 1.0"
-    s.add_development_dependency "sqlite3"
-    s.add_development_dependency "bson_ext"
-    s.add_development_dependency "curb"
-    s.add_development_dependency "oj"
-    s.add_development_dependency "turn",        "~> 0.9"
+    s.add_development_dependency 'bson_ext'
+    s.add_development_dependency 'curb'
+    s.add_development_dependency 'oj'
+    s.add_development_dependency 'sqlite3'
+    s.add_development_dependency 'turn', '~> 0.9'
+    s.add_development_dependency 'yajl-ruby', '~> 1.0'
   end
 
   s.description = <<-DESC
@@ -71,16 +72,16 @@ Gem::Specification.new do |s|
    Please check the documentation at <http://karmi.github.com/retire/>.
   DESC
 
-  s.post_install_message =<<-CHANGELOG.gsub(/^  /, '')
-  ================================================================================
+  s.post_install_message = <<~CHANGELOG.gsub(/^  /, '')
+      ================================================================================
 
-    Please check the documentation at <http://karmi.github.com/retire/>.
+        Please check the documentation at <http://karmi.github.com/retire/>.
 
-  --------------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
 
-#{Tire::CHANGELOG}
-    See the full changelog at <http://github.com/karmi/tire/commits/v#{Tire::VERSION}>.
+    #{Tire::CHANGELOG}
+        See the full changelog at <http://github.com/karmi/tire/commits/v#{Tire::VERSION}>.
 
-  --------------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
   CHANGELOG
 end
